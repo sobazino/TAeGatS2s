@@ -729,14 +729,14 @@ def start():
     # model.load_state_dict(load['model_state_dict'])
     criterion = nn.BCELoss()
     
-    DAED = AED(6, 64, 128)
+    DAED = AED(7, 64, 128)
     load = torch.load("AED-D.pth")
     DAED.load_state_dict(load['model_state_dict'])
     DAED.eval()
     for param in DAED.parameters():
         param.requires_grad = False
 
-    TAED = AED(6, 64, 128)
+    TAED = AED(7, 64, 128)
     load = torch.load("AED-P.pth")
     TAED.load_state_dict(load['model_state_dict'])
     TAED.eval()
